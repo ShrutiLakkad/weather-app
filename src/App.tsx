@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import WeatherApp from './feature/weather/container/weather';
+import { Toaster } from 'react-hot-toast';
+import 'animate.css';
+import '../src/assets/style/weather.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WeatherApp />
+      <Toaster
+        position="bottom-center"
+        reverseOrder={false}
+      />
+
     </div>
   );
 }
