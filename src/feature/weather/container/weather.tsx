@@ -88,7 +88,6 @@ const WeatherApp: React.FC = () => {
 
   const fetchWeatherDataByLocation = async (lat = 0, lon = 0, fetchWeather = false) => {
     const params: any = {
-      cnt: 15,
       units: 'metric',
       appid: process.env.REACT_APP_OPEN_WEATHER_MAP_APP_ID
     }

@@ -32,7 +32,8 @@ const LineChart: React.FC<IProps> = ({ data, height, width }) => {
                 scales: {
                     y: {
                         ticks: {
-                            display: false,
+                            display: true,
+                            color: "#ffffff"
                         },
                         grid: {
                             display: false,
