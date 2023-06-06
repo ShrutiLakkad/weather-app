@@ -66,7 +66,6 @@ const WeatherApp: React.FC = () => {
     }, 2000);
   }, [])
 
-
   const fetchWeatherData = async (currentCity = city, fetchForeCast = false) => {
 
     try {
