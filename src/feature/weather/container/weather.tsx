@@ -17,8 +17,6 @@ import fewClouds from 'assets/images/few clouds.gif';
 import hazeImage from 'assets/images/haze.gif';
 import thunderstormImage from 'assets/images/thunderstorm.gif';
 
-
-
 export interface IWeatherData {
   weather: any;
   main: {

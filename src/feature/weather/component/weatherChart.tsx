@@ -12,15 +12,6 @@ import {
 import moment from 'moment-timezone';
 import ChartComponent from 'shared/component/chart/lineChart';
 
-export const formatDate = (date: any, format?: string) => {
-    if (!date) {
-        return '';
-    }
-    return moment(date)
-        .local()
-        .format(format || 'DD-MM-YYYY');
-};
-
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 export interface IWeatherGraph {
@@ -29,7 +20,6 @@ export interface IWeatherGraph {
 
 export const WeatherStatsGraph: React.FC<IWeatherGraph> = (props) => {
     const { weatherStats } = props;
-    console.log("weatherStats", weatherStats);
     const createChartData = {
         labels: weatherStats.map((ele) => moment(ele.dt_txt, "YYYYMMDD").fromNow()),
         datasets: [

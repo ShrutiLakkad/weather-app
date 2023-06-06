@@ -1,146 +1,142 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
+
 .loading-animation {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
 .weather-container {
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  height: 100vh;
-  .bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
-  }
-  .weather-details {
-    display: flex;
-    gap: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.342);
-    width: 100vw;
-    height: 100vh;
-    padding: 20px;
-    .weather-app-container {
-      flex: 35%;
-      padding: 15px 0;
-    }
-    .weather-graph {
-      width: calc(100% - 420px);
-      border-radius: 20px;
-      backdrop-filter: blur(10px) saturate(180%);
-      -webkit-backdrop-filter: blur(10px) saturate(180%);
-      background-color: rgba(0, 0, 0, 0.541);
-      box-shadow: 0 0 10px 000000bf;
-      padding: 20px;
-      position: relative;
-    }
-    .weather-app {
-      color: white;
-    }
-    .input-container {
-      height: 100%;
-      width: 400px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px) saturate(180%);
-      -webkit-backdrop-filter: blur(10px) saturate(180%);
-      background-color: rgba(0, 0, 0, 0.541);
-      box-shadow: 0 0 10px 000000bf;
-      padding: 20px;
-      .location-input-box {
-        position: relative;
-        margin-bottom: 10px;
-        padding-top: 20px;
-        .location-icon {
-          position: absolute;
-          height: 40px;
-          width: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          svg {
-            fill: rgb(143, 143, 143);
-          }
-        }
-        .input {
-          height: 40px;
-          border-radius: px;
-          border-radius: 10px;
-          border: 1px solid #cacaca;
-          padding-left: 40px;
-          border: 2px solid rgb(143, 143, 143);
-          background: transparent;
-          color: rgb(143, 143, 143);
-          width: 100%;
-          text-transform: capitalize;
-        }
-        .arrow-icon {
-          top: 20px;
-          position: absolute;
-          height: 40px;
-          width: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          right: 0;
-          svg {
-            fill: rgb(143, 143, 143);
-          }
-        }
-      }
-    }
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	height: 100vh;
+	.bg-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		z-index: 1;
+	}
+	.weather-details {
+		display: flex;
+		gap: 20px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		z-index: 2;
+		background-color: rgba(0, 0, 0, 0.342);
+		width: 100vw;
+		height: 100vh;
+		padding: 20px;
+		.weather-app-container {
+			flex: 35%;
+			padding: 15px 0;
+		}
+		.weather-graph {
+			width: calc(100% - 420px);
+			border-radius: 20px;
+			backdrop-filter: blur(10px) saturate(180%);
+			-webkit-backdrop-filter: blur(10px) saturate(180%);
+			background-color: rgba(0, 0, 0, 0.541);
+			box-shadow: 0 0 10px 000000bf;
+			padding: 20px;
+			position: relative;
+		}
+		.weather-app {
+			color: white;
+		}
+		.input-container {
+			height: 100%;
+			width: 400px;
+			border-radius: 20px;
+			backdrop-filter: blur(10px) saturate(180%);
+			-webkit-backdrop-filter: blur(10px) saturate(180%);
+			background-color: rgba(0, 0, 0, 0.541);
+			box-shadow: 0 0 10px 000000bf;
+			padding: 20px;
+			.location-input-box {
+				position: relative;
+				margin-bottom: 10px;
+				padding-top: 20px;
+				.location-icon {
+					position: absolute;
+					height: 40px;
+					width: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					svg {
+						fill: rgb(143, 143, 143);
+					}
+				}
+				.input {
+					height: 40px;
+					border-radius: px;
+					border-radius: 10px;
+					border: 1px solid #cacaca;
+					padding-left: 40px;
+					border: 2px solid rgb(143, 143, 143);
+					background: transparent;
+					color: rgb(143, 143, 143);
+					width: 100%;
+					text-transform: capitalize;
+					outline: none;
+				}
+				.arrow-icon {
+					top: 20px;
+					position: absolute;
+					height: 40px;
+					width: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					right: 0;
+					svg {
+						fill: rgb(143, 143, 143);
+					}
+				}
+			}
+		}
+		.weather-card {
+			color: white;
+			font-size: 17px;
+			font-weight: 500;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 
-    .weather-card {
-      color: white;
-      font-size: 17px;
-      font-weight: 500;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: calc(100% - 128px);
-      .weather-card-inner {
-        text-align: center;
-        .weather-name {
-          font-size: 50px;
-        }
-        .weather-temp {
-          font-size: 120px;
-          margin: 0;
-          line-height: 1;
-        }
-        .weather-desc {
-          font-size: 50px;
-        }
-        .weather-humidity {
-        }
-        .weather-pressure {
-        }
-        .weather-wind {
-          font-size: 20px;
-          gap: 10px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          p {
-            margin: 0;
-          }
-        }
-      }
-    }
-  }
+			.weather-card-inner {
+				text-align: center;
+				.weather-name {
+					font-size: 50px;
+				}
+				.weather-temp {
+					font-size: 120px;
+					margin: 0;
+					line-height: 1;
+				}
+				.weather-desc {
+					font-size: 50px;
+				}
+				.weather-wind {
+					font-size: 20px;
+					gap: 10px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
+	}
 }
