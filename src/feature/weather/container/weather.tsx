@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Lottie from 'react-lottie';
 import toast from 'react-hot-toast';
+import moment from 'moment-timezone';
 import loadingAnimation from '../json/loadingAnimation.json';
 import { WeatherStatsGraph } from '../component/weatherChart';
 import clearWeather from '../json/clearWeather.json';
@@ -10,7 +11,7 @@ import haze from '../json/haze.json';
 import smoky from '../json/smoky.json';
 import cityAnimation from '../json/city.json';
 import thunderstorm from '../json/thunderstorm.json';
-import { Arrow, Location, WindSpeed } from 'shared/component/icons/icon';
+import { Arrow, Location, Sunrise, Sunset, WindSpeed } from 'shared/component/icons/icon';
 import clouds from 'assets/images/giphy.gif';
 import smoke from 'assets/images/smoke.gif';
 import fewClouds from 'assets/images/few clouds.gif';
@@ -30,6 +31,10 @@ export interface IWeatherData {
     speed: number
   }
   weatherStats: any;
+  sys:{
+    sunrise: number;
+    sunset: number;
+  }
 }
 
 interface IWeatherMapper {
@@ -58,13 +63,25 @@ const WeatherApp: React.FC = () => {
   const [forecastWeatherData, setForecastWeatherData] = useState<any>([])
   const [loading, setLoading] = useState(true);
   const [initial, setInitial] = useState(true);
-  const [foreCastKey, setForeCastKey] = useState(0)
+  const [foreCastKey, setForeCastKey] = useState(0);
+  const [currentTime, setCurrentTime] = useState(moment().format('dddd, MMMM Do YYYY, h:mm:ss a'));
 
   useEffect(() => {
     setTimeout(() => {
       handleGetCurrentLocation()
     }, 2000);
   }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(moment().format('dddd, MMMM Do YYYY, h:mm:ss a'));
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
 
   const fetchWeatherData = async (currentCity = city, fetchForeCast = false) => {
 
@@ -95,7 +112,6 @@ const WeatherApp: React.FC = () => {
       params.lat = lat;
       params.lon = lon
     }
-
     setLoading(true);
     try {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast`, { params });
@@ -171,6 +187,10 @@ const WeatherApp: React.FC = () => {
               {weatherData &&
                 <div className="weather-card animate__animated animate__fadeIn" key={foreCastKey}>
                   <div className='weather-card-inner'>
+                    <div className='weather-sun'>
+                    <p className='sunrise'><Sunrise/> { moment.unix(weatherData.sys.sunrise).format('LT')}</p>
+                    <p className='sunset'><Sunset/> { moment.unix(weatherData.sys.sunset).format('LT')}</p>
+                    </div>
                     <h1 className='weather-name'>{weatherData.name}</h1>
                     <p className='weather-temp'>{parseInt(weatherData.main.temp.toString())}°C</p>
                     <Lottie options={{
@@ -191,6 +211,11 @@ const WeatherApp: React.FC = () => {
             </div>
             <div className='weather-graph animate__animated animate__slideInRight'>
               <div className='animate__animated animate__fadeIn'>
+                {weatherData &&  (
+            <div className='weather-date-day'>
+                <p>{currentTime}</p>
+                </div> 
+                )}
                 <Lottie
                   key={foreCastKey}
                   options={{

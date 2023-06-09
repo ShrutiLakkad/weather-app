@@ -48,6 +48,15 @@
 			box-shadow: 0 0 10px 000000bf;
 			padding: 20px;
 			position: relative;
+			.weather-date-day {
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 10px;
+				font-size: 25px;
+				font-weight: 500;
+			}
 		}
 		.weather-app {
 			color: white;
@@ -112,9 +121,25 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-
 			.weather-card-inner {
 				text-align: center;
+				.weather-sun {
+					display: flex;
+					align-items: center;
+					gap: 25px;
+					font-size: 20px;
+					.sunrise {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+					.sunset {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 7px;
+					}
+				}
 				.weather-name {
 					font-size: 50px;
 				}
